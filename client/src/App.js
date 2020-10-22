@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import TradingViewWidget from "react-tradingview-widget";
+import React, { useState, useEffect, useRef } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,7 +16,15 @@ function StockPage() {
   const [stockInfoData, setStockInfoData] = useState({});
   const history = useHistory();
   let { stockTick } = useParams();
+  const tradingRef = useRef();
   console.log(stockTick);
+
+  /*
+<div class="tradingview-widget-container">
+  <div id="tradingview_951e6"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView</div>
+  */
+
   useEffect(() => {
     fetch(
       `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${stockTick}&interval=5min&apikey=5NUW7CKWG93NYG2M`
@@ -54,7 +63,9 @@ function StockPage() {
   const movingAverage200 = stockInfoData["200DayMovingAverage"];
   const beta = stockInfoData["Beta"];
   const divYield = stockInfoData["DividendYield"];
-
+  const sector = stockInfoData["Sector"];
+  const industry = stockInfoData["Industry"];
+  const country = stockInfoData["Country"];
   const yesterdayPrice = yesterdayPriceData["Time Series (Daily)"]
     ? Number(
         Object.values(yesterdayPriceData["Time Series (Daily)"])[1]["4. close"]
@@ -71,6 +82,9 @@ function StockPage() {
     : "error";
   const isPositive = stockPrice >= yesterdayPrice;
   console.log(stockPriceData);
+  const stockPoints = stockPrice - yesterdayPrice;
+  const stockPercent =
+    ((stockPrice - yesterdayPrice) / Math.abs(stockPrice)) * 100;
   return (
     <div className="body-wrapper">
       <div>
@@ -78,15 +92,32 @@ function StockPage() {
           <h1>Stock Price</h1>
           <div>{stockPriceDate}</div>
           <div className="stock-ticker">{stockTick}</div>
+          <div> {stockPrice}</div>
           <div
             style={{ color: isPositive ? "green" : "red" }}
             className="stock-price"
           >
-            {stockPrice}
+            {stockPercent.toFixed(2)}%
           </div>
         </div>
         <div className="box">
-          <p>Company Description</p>
+          <h1>Company Profile</h1>
+          <strong class="tag">
+            <span class="tag profile-tag"> Sector </span>
+            <span class="tag primary-light"> {sector} </span>
+          </strong>
+          <strong class="tag">
+            <span class=" tag profile-tag">Industry </span>
+            <span class="tag primary-light"> {industry} </span>
+          </strong>
+          <strong class="tag">
+            <span class=" tag profile-tag"> Country </span>
+            <span class="tag primary-light">{country}</span>
+          </strong>
+          <strong class="tag">
+            <span class=" tag profile-tag">Employess</span>
+            <span class="tag primary-light">{employess}</span>
+          </strong>
           {stockDescription}
         </div>
         <div class="columns is-mobile is-multiline is-centered">
@@ -405,6 +436,8 @@ function StockPage() {
             </div>
           </div>
         </div>
+
+        <TradingViewWidget symbol={`NASDAQ:${stockTick}`} />
       </div>
     </div>
   );
