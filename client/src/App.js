@@ -87,39 +87,43 @@ function StockPage() {
     ((stockPrice - yesterdayPrice) / Math.abs(stockPrice)) * 100;
   return (
     <div className="body-wrapper">
-      <div>
+      <body>
         <div class="columns is-mutiline">
           <div className="column">
-            <h1>Stock Price</h1>
-            <div>{stockPriceDate}</div>
-            <div className="stock-ticker">{stockTick}</div>
-            <div> {stockPrice}</div>
-            <div
-              style={{ color: isPositive ? "green" : "red" }}
-              className="stock-price"
-            >
-              {stockPercent.toFixed(2)}%
+            <div className="card">
+              <h1>Stock Price</h1>
+              <div>{stockPriceDate}</div>
+              <div className="stock-ticker">{stockTick}</div>
+              <div> {stockPrice}</div>
+              <div
+                style={{ color: isPositive ? "green" : "red" }}
+                className="stock-price"
+              >
+                {stockPercent.toFixed(2)}%
+              </div>
             </div>
           </div>
-          <div className="box">
-            <h1>Company Profile</h1>
-            <strong class="tag">
-              <span class="tag profile-tag"> Sector </span>
-              <span class="tag primary-light"> {sector} </span>
-            </strong>
-            <strong class="tag">
-              <span class=" tag profile-tag">Industry </span>
-              <span class="tag primary-light"> {industry} </span>
-            </strong>
-            <strong class="tag">
-              <span class=" tag profile-tag"> Country </span>
-              <span class="tag primary-light">{country}</span>
-            </strong>
-            <strong class="tag">
-              <span class=" tag profile-tag">Employess</span>
-              <span class="tag primary-light">{employess}</span>
-            </strong>
-            {stockDescription}
+          <div className="column">
+            <div className="card">
+              <h1>Company Profile</h1>
+              <strong class="tag">
+                <span class="tag profile-tag"> Sector </span>
+                <span class="tag primary-light"> {sector} </span>
+              </strong>
+              <strong class="tag">
+                <span class=" tag profile-tag">Industry </span>
+                <span class="tag primary-light"> {industry} </span>
+              </strong>
+              <strong class="tag">
+                <span class=" tag profile-tag"> Country </span>
+                <span class="tag primary-light">{country}</span>
+              </strong>
+              <strong class="tag">
+                <span class=" tag profile-tag">Employess</span>
+                <span class="tag primary-light">{employess}</span>
+              </strong>
+              {stockDescription}
+            </div>
           </div>
         </div>
         <div class="columns is-mobile is-multiline is-centered">
@@ -440,7 +444,7 @@ function StockPage() {
         </div>
 
         <TradingViewWidget symbol={`NASDAQ:${stockTick}`} />
-      </div>
+      </body>
     </div>
   );
 }
