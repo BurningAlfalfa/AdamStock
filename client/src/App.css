@@ -22,6 +22,9 @@
   flex-shrink: 1;
   padding: 0.75rem;
 }
+.columns.is-multiline {
+  flex-wrap: flex;
+}
 p {
   display: block;
   margin-block-start: 1em;

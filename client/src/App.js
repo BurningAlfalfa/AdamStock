@@ -88,62 +88,53 @@ function StockPage() {
   return (
     <div className="body-wrapper">
       <div>
-        <div className="box">
-          <h1>Stock Price</h1>
-          <div>{stockPriceDate}</div>
-          <div className="stock-ticker">{stockTick}</div>
-          <div> {stockPrice}</div>
-          <div
-            style={{ color: isPositive ? "green" : "red" }}
-            className="stock-price"
-          >
-            {stockPercent.toFixed(2)}%
+        <div class="columns is-mutiline">
+          <div className="column">
+            <h1>Stock Price</h1>
+            <div>{stockPriceDate}</div>
+            <div className="stock-ticker">{stockTick}</div>
+            <div> {stockPrice}</div>
+            <div
+              style={{ color: isPositive ? "green" : "red" }}
+              className="stock-price"
+            >
+              {stockPercent.toFixed(2)}%
+            </div>
           </div>
-        </div>
-        <div className="box">
-          <h1>Company Profile</h1>
-          <strong class="tag">
-            <span class="tag profile-tag"> Sector </span>
-            <span class="tag primary-light"> {sector} </span>
-          </strong>
-          <strong class="tag">
-            <span class=" tag profile-tag">Industry </span>
-            <span class="tag primary-light"> {industry} </span>
-          </strong>
-          <strong class="tag">
-            <span class=" tag profile-tag"> Country </span>
-            <span class="tag primary-light">{country}</span>
-          </strong>
-          <strong class="tag">
-            <span class=" tag profile-tag">Employess</span>
-            <span class="tag primary-light">{employess}</span>
-          </strong>
-          {stockDescription}
+          <div className="box">
+            <h1>Company Profile</h1>
+            <strong class="tag">
+              <span class="tag profile-tag"> Sector </span>
+              <span class="tag primary-light"> {sector} </span>
+            </strong>
+            <strong class="tag">
+              <span class=" tag profile-tag">Industry </span>
+              <span class="tag primary-light"> {industry} </span>
+            </strong>
+            <strong class="tag">
+              <span class=" tag profile-tag"> Country </span>
+              <span class="tag primary-light">{country}</span>
+            </strong>
+            <strong class="tag">
+              <span class=" tag profile-tag">Employess</span>
+              <span class="tag primary-light">{employess}</span>
+            </strong>
+            {stockDescription}
+          </div>
         </div>
         <div class="columns is-mobile is-multiline is-centered">
           <div className="column is-12-mobile is-10-tablet is-8-fullhd">
             <div class="columns box is-paddingless is-marginless">
               <div class="column">
-                <h1> Stock Info</h1>
+                <h1> Quick look</h1>
 
                 <div class="columns is multiline is-marginless is-paddingless">
                   <div class="column is-12-mobile is-6-tablet is-6-desktop is-4-widescreen is-4-fullhd is-paddingless is-size-7 dbStatWrapper tooltip is-tooltip-info is-tooltip-multiline">
                     <div className="columns is-mobile is-marginless is-paddingless">
                       <div class="column is-paddingless is-half dbStatLabel">
-                        <p>Company Name</p>
-                      </div>
-                      <div class="column is-paddingless is-half dbStatValue">
-                        <p>{companyName}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="column is-12-mobile is-6-tablet is-6-desktop is-4-widescreen is-4-fullhd is-paddingless is-size-7 dbStatWrapper tooltip is-tooltip-info is-tooltip-multiline">
-                    <div className="columns is-mobile is-marginless is-paddingless">
-                      <div class="column is-paddingless is-half dbStatLabel">
                         <p>Market Cap</p>
                       </div>
-                      <div class="column is-paddingless is-half dbStatLabel">
+                      <div class="column is-paddingless is-half dbStatValue">
                         <p>{marketCap}</p>
                       </div>
                     </div>
@@ -152,21 +143,10 @@ function StockPage() {
                   <div class="column is-12-mobile is-6-tablet is-6-desktop is-4-widescreen is-4-fullhd is-paddingless is-size-7 dbStatWrapper tooltip is-tooltip-info is-tooltip-multiline">
                     <div className="columns is-mobile is-marginless is-paddingless">
                       <div class="column is-paddingless is-half dbStatLabel">
-                        <p>Fulltime Employess</p>
+                        <p>Enterprise Value</p>
                       </div>
                       <div class="column is-paddingless is-half dbStatLabel">
-                        <p>{employess}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="column is-12-mobile is-6-tablet is-6-desktop is-4-widescreen is-4-fullhd is-paddingless is-size-7 dbStatWrapper tooltip is-tooltip-info is-tooltip-multiline">
-                    <div className="columns is-mobile is-marginless is-paddingless">
-                      <div class="column is-paddingless is-half dbStatLabel">
-                        <p>Float</p>
-                      </div>
-                      <div class="column is-paddingless is-half dbStatLabel">
-                        <p>{shares}</p>
+                        <p>{}</p>
                       </div>
                     </div>
                   </div>
@@ -174,7 +154,40 @@ function StockPage() {
                   <div class="column is-12-mobile is-6-tablet is-6-desktop is-4-widescreen is-4-fullhd is-paddingless is-size-7 dbStatWrapper tooltip is-tooltip-info is-tooltip-multiline">
                     <div className="columns is-mobile is-marginless is-paddingless">
                       <div class="column is-paddingless is-half dbStatLabel">
-                        <p>Average Vol (30)</p>
+                        <p>EV/EBITDA</p>
+                      </div>
+                      <div class="column is-paddingless is-half dbStatLabel">
+                        <p>{}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="column is-12-mobile is-6-tablet is-6-desktop is-4-widescreen is-4-fullhd is-paddingless is-size-7 dbStatWrapper tooltip is-tooltip-info is-tooltip-multiline">
+                    <div className="columns is-mobile is-marginless is-paddingless">
+                      <div class="column is-paddingless is-half dbStatLabel">
+                        <p>EV/EBIT</p>
+                      </div>
+                      <div class="column is-paddingless is-half dbStatLabel">
+                        <p>{}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="column is-12-mobile is-6-tablet is-6-desktop is-4-widescreen is-4-fullhd is-paddingless is-size-7 dbStatWrapper tooltip is-tooltip-info is-tooltip-multiline">
+                    <div className="columns is-mobile is-marginless is-paddingless">
+                      <div class="column is-paddingless is-half dbStatLabel">
+                        <p>Price/Earnings</p>
+                      </div>
+                      <div class="column is-paddingless is-half dbStatLabel">
+                        <p>{}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="column is-12-mobile is-6-tablet is-6-desktop is-4-widescreen is-4-fullhd is-paddingless is-size-7 dbStatWrapper tooltip is-tooltip-info is-tooltip-multiline">
+                    <div className="columns is-mobile is-marginless is-paddingless">
+                      <div class="column is-paddingless is-half dbStatLabel">
+                        <p>Price/Sales </p>
                       </div>
                       <div class="column is-paddingless is-half dbStatLabel">
                         <p>-</p>
@@ -185,18 +198,7 @@ function StockPage() {
                   <div class="column is-12-mobile is-6-tablet is-6-desktop is-4-widescreen is-4-fullhd is-paddingless is-size-7 dbStatWrapper tooltip is-tooltip-info is-tooltip-multiline">
                     <div className="columns is-mobile is-marginless is-paddingless">
                       <div class="column is-paddingless is-half dbStatLabel">
-                        <p>Avg Vol (10) </p>
-                      </div>
-                      <div class="column is-paddingless is-half dbStatLabel">
-                        <p>-</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="column is-12-mobile is-6-tablet is-6-desktop is-4-widescreen is-4-fullhd is-paddingless is-size-7 dbStatWrapper tooltip is-tooltip-info is-tooltip-multiline">
-                    <div className="columns is-mobile is-marginless is-paddingless">
-                      <div class="column is-paddingless is-half dbStatLabel">
-                        <p> Next Earnings </p>
+                        <p> Price/Book</p>
                       </div>
                       <div class="column is-paddingless is-half dbStatLabel">
                         <p>-</p>
