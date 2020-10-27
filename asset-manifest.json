@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/AdamStock/static/css/main.df3d0527.chunk.css",
+    "main.js": "/AdamStock/static/js/main.8423c772.chunk.js",
+    "main.js.map": "/AdamStock/static/js/main.8423c772.chunk.js.map",
+    "runtime-main.js": "/AdamStock/static/js/runtime-main.e07e917b.js",
+    "runtime-main.js.map": "/AdamStock/static/js/runtime-main.e07e917b.js.map",
+    "static/js/2.459ac960.chunk.js": "/AdamStock/static/js/2.459ac960.chunk.js",
+    "static/js/2.459ac960.chunk.js.map": "/AdamStock/static/js/2.459ac960.chunk.js.map",
+    "index.html": "/AdamStock/index.html",
+    "precache-manifest.f1a1a251b67c692306605d27dc28c709.js": "/AdamStock/precache-manifest.f1a1a251b67c692306605d27dc28c709.js",
+    "service-worker.js": "/AdamStock/service-worker.js",
+    "static/css/main.df3d0527.chunk.css.map": "/AdamStock/static/css/main.df3d0527.chunk.css.map",
+    "static/js/2.459ac960.chunk.js.LICENSE.txt": "/AdamStock/static/js/2.459ac960.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e07e917b.js",
+    "static/js/2.459ac960.chunk.js",
+    "static/css/main.df3d0527.chunk.css",
+    "static/js/main.8423c772.chunk.js"
+  ]
+}
